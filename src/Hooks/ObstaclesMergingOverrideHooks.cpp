@@ -14,24 +14,22 @@ MAKE_AUTO_HOOK_MATCH(
     BeatmapDataTransformHelper_CreateTransformedBeatmapData,
     &GlobalNamespace::BeatmapDataTransformHelper::CreateTransformedBeatmapData,
     GlobalNamespace::IReadonlyBeatmapData*,
-    GlobalNamespace::IReadonlyBeatmapData* beatmapData,
-    GlobalNamespace::BeatmapLevel* beatmapLevel,
-    GlobalNamespace::GameplayModifiers* gameplayModifiers,
-    bool leftHanded,
-    GlobalNamespace::EnvironmentEffectsFilterPreset environmentEffectsFilterPreset,
-    GlobalNamespace::EnvironmentIntensityReductionOptions* environmentIntensityReductionOptions,
-    by_ref<::BeatSaber::Settings::Settings> settings
+    ::GlobalNamespace::IReadonlyBeatmapData* beatmapData, ::GlobalNamespace::BeatmapKey beatmapKey,
+    ::GlobalNamespace::BeatmapLevel* beatmapLevel, ::GlobalNamespace::GameplayModifiers* gameplayModifiers,
+    ::GlobalNamespace::PlayerSpecificSettings* playerSpecificSettings,
+    ::GlobalNamespace::EnvironmentInfoSO* originalEnvironmentInfo, 
+    bool screenDisplacementEffects
 ) {
     ByPassMergeTransformForCustomLevel = beatmapLevel && beatmapLevel->levelID.starts_with(u"custom_level_");
 
     return BeatmapDataTransformHelper_CreateTransformedBeatmapData(
         beatmapData,
+        beatmapKey,
         beatmapLevel,
         gameplayModifiers,
-        leftHanded,
-        environmentEffectsFilterPreset,
-        environmentIntensityReductionOptions,
-        settings
+        playerSpecificSettings,
+        originalEnvironmentInfo,
+        screenDisplacementEffects
     );
 }
 
