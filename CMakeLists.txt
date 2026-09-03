@@ -9,8 +9,8 @@ project(${COMPILE_ID})
 set(MOD_ID "SongCore")
 
 # C++ standard
-set(CMAKE_CXX_STANDARD 23)
-set(CMAKE_CXX_STANDARD_REQUIRED 23)
+set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD_REQUIRED 26)
 
 # Provide compile commands so they can be used for intellisense
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
